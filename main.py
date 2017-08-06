@@ -96,6 +96,8 @@ def choose_option(user_input):
     elif (user_input == RIDE_A_BIKE_NO):
         print(OPTIONS[RIDE_A_BIKE_NO])
         update_state()
+        ride = ride_a_bike(STATE)
+        write_ride_file(ride)
     else:
         raise InvalidInputException(ERROR_INPUT_WRONG)
 

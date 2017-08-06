@@ -57,7 +57,14 @@ OPTION_6_HEADER = \
 Bike No.  Batt %  KM since Last
 --------  ------  ------------- \
 """
-OPTION_6_FORMAT = "{:<10}{:<8}{:<15}{:<8}"
+OPTION_6_FORMAT = "{:<10}{:<8}{:<15}"
+
+OPTION_6_HEADER_2 = \
+"""
+Pitch  Roll  Yaw  Movement  Temp  Batt %  KM
+-----  ----  ---  --------  ----  ------  ---- \
+"""
+OPTION_6_FORMAT_2 = "{:<7}{:<6}{:<5}{:<10}{:<6}{:<8}{:<4}"
 
 PRINT_DATA1_DIRECTORY = \
 """
@@ -75,3 +82,4 @@ ERROR_BIKE_NOT_FOUND = "The bicycle you've entered doesn't exist. Please Try aga
 ERROR_RIDES_NOT_FOUND = "The bicycle you've entered doesn't have any rides. Please Try again. Type 'cancel' to exit"
 ERROR_BIKE_ALREADY_EXIST = "The bicycle number you've entered already exists. Please Try Again. Type 'cancel' to exit"
 ERROR_BIKE_NO_SERVICE = "The bicycle is not due for servicing. Please Try Again. Type 'cancel' to exit"
+ERROR_BIKE_NEEDS_SERVICING = "Bicycle needs to be serviced. Cannot be rented at this time. Please Try Again. Type 'cancel' to exit"

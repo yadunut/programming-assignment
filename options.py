@@ -3,6 +3,7 @@ from classes import *
 from strings import *
 from utils import *
 from datetime import datetime
+from sense_hat_manager import *
 
 # prints count of bicycle records
 def read_bicycle_info(STATE):
@@ -77,3 +78,31 @@ def do_bicycle_maintenance(STATE):
     except BikeErrorException as e:
         print(str(e))
         return do_bicycle_maintenance(STATE)
+
+
+def ride_a_bike(STATE):
+    bicycles = STATE['bicycles']
+    print(OPTION_6_HEADER)
+    for bike in bicycles:
+        if (bike.service == "Y"):
+            print(OPTION_6_FORMAT.format(bike.bike_no, bike.battery, bike.km_since_last))
+
+    bike_no = input("Enter a bike no: ")
+    if bike_no == 'cancel':
+        return
+    try:
+        bike = find_bike(bicycles, bike_no)
+        if not bike:
+            raise BikeErrorException(ERROR_BIKE_NOT_FOUND)
+        if bike.service == "Y":
+            raise BikeErrorException(ERROR_BIKE_NEEDS_SERVICING)
+        print("Riding Bike {}".format(bike.bike_no))
+        new_battery, new_distance_travelled = sense_hat_main(bike.battery)
+        print("Trip Ended")
+        print("You travelled {} over 15 seconds".format(new_distance_travelled))
+        print("Thank you for riding with oRide")
+        return Ride(bike.bike_no, 15, new_distance_travelled, new_battery)
+
+    except BikeErrorException as e:
+        print(str(e))
+        return ride_a_bike(STATE)

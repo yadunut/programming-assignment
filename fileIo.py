@@ -61,11 +61,7 @@ def write_bicycle_file(STATE):
     for bike in bicycles:
         bike_file_object.write(str(bike) + "\n")
 
-def write_ride_file(STATE):
-    bicycles = STATE['bicycles']
+def write_ride_file(ride):
     rides_file_path = "./data2/" + STATE['rides_file_name']
-    rides_file_object = open(rides_file_path, "w")
-    rides_file_object.write(RIDE_FILE_HEADER)
-    for bike in bicycles:
-        for ride in bike.rides:
-            rides_file_object.write(str(ride) + "\n")
+    rides_file_object = open(rides_file_path, "a")
+    rides_file_object.ride(str(ride))
