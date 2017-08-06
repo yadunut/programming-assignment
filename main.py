@@ -41,7 +41,7 @@ def update_state():
             STATE['bicycle_file_name'] = ""
             STATE['rides_file_name'] = ""
             STATE['did_read_file'] = False
-            update_state()
+            return update_state()
     # If i Havent read the file, It will try to update_state
     elif not STATE['did_read_file']:
         try:
@@ -53,7 +53,7 @@ def update_state():
             STATE['rides_file_name'] = ""
             STATE['did_read_file'] = False
             print("STATE ERROR SETTING FALSE")
-            update_state()
+            return update_state()
 
 # Function to call apppropriate method depending on user inputs
 def choose_option(user_input):
@@ -72,7 +72,6 @@ def choose_option(user_input):
         print(OPTIONS[DISPLAY_WITH_SERVICE_INFO_NO])
         update_state()
         display_with_service_info(STATE)
-
 
     elif (user_input == DISPLAY_SELECTED_BIKE_INFO_NO):
         print(OPTIONS[DISPLAY_SELECTED_BIKE_INFO_NO])
@@ -108,6 +107,7 @@ def main():
             choose_option(user_input)
         except ValueError as e:
             print(ERROR_INPUT_WRONG)
+            return
         except InvalidInputException as e:
             print(str(e))
 main()

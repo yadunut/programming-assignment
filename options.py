@@ -32,7 +32,7 @@ def display_selected_bike_info(STATE):
             print(OPTION_3_FORMAT.format(ride.bike_no, ride.ride_duration, ride.ride_distance, ride.battery))
     except BikeErrorException as e:
         print(str(e))
-        display_selected_bike_info(STATE)
+        return display_selected_bike_info(STATE)
 
 # Adds cycle to the STATE
 def add_cycle(STATE):
@@ -46,7 +46,7 @@ def add_cycle(STATE):
             raise BikeErrorException(ERROR_BIKE_ALREADY_EXIST)
     except BikeErrorException as e:
         print(str(e))
-        add_cycle(STATE)
+        return add_cycle(STATE)
     purchase_date = input("Purchase Date: ")
     try:
         bike = Bicycle(bike_no, purchase_date, 100, datetime.strftime(datetime.now(), "%d/%m/%Y"), 0)
@@ -54,7 +54,7 @@ def add_cycle(STATE):
         return bicycles
     except BicycleClassException as e:
         print(e)
-        add_cycle(STATE)
+        return add_cycle(STATE)
 
 def do_bicycle_maintenance(STATE):
     bicycles = STATE['bicycles']
@@ -73,8 +73,7 @@ def do_bicycle_maintenance(STATE):
         bike.battery = 100
         bike.km_since_last = 0
         bike.last_maintenance = datetime.strftime(datetime.now(), "%d/%m/%Y")
-        print(f'Bicycles: {bicycles}')
         return bicycles
     except BikeErrorException as e:
         print(str(e))
-        do_bicycle_maintenance(STATE)
+        return do_bicycle_maintenance(STATE)
