@@ -50,7 +50,7 @@ def sense_hat_main(battery):
         is_moving, status = get_cumulative_movement(status)
         if(not is_moving):
             battery -= 1
-        elif (is_moving and temperature_diff > 0.05):
+        elif (is_moving and temperature_diff > 0.5):
             battery += 1
             distance_travelled += 0.01
         print(OPTION_6_FORMAT_2.format(status[0], status[1], status[2],is_moving, temperature, battery, distance_travelled))

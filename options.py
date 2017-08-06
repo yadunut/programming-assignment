@@ -20,8 +20,6 @@ def display_with_service_info(STATE):
 def display_selected_bike_info(STATE):
     bicycles = STATE['bicycles']
     bike_no = input("Enter a bike no: ")
-    if bike_no == 'cancel':
-        return
     try :
         bike = find_bike(bicycles, bike_no)
         if not bike:

@@ -52,7 +52,7 @@ def read_files(STATE):
     bike_file_object.close()
     rides_file_object.close()
     return bicycles
-
+# Updates the file with the updated state
 def write_bicycle_file(STATE):
     bicycles = STATE['bicycles']
     bicycle_file_path = "./data1/" + STATE['bicycle_file_name']
@@ -60,8 +60,8 @@ def write_bicycle_file(STATE):
     bike_file_object.write(BICYCLE_FILE_HEADER)
     for bike in bicycles:
         bike_file_object.write(str(bike) + "\n")
-
+# Writes the ride to the rides file
 def write_ride_file(ride):
     rides_file_path = "./data2/" + STATE['rides_file_name']
     rides_file_object = open(rides_file_path, "a")
-    rides_file_object.ride(str(ride))
+    rides_file_object.ride(str(ride) + "\n")

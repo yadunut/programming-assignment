@@ -100,7 +100,7 @@ def choose_option(user_input):
         write_ride_file(ride)
     else:
         raise InvalidInputException(ERROR_INPUT_WRONG)
-
+# Main Function, runs the loop
 def main():
     while True:
         print(MENU)

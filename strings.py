@@ -82,4 +82,4 @@ ERROR_BIKE_NOT_FOUND = "The bicycle you've entered doesn't exist. Please Try aga
 ERROR_RIDES_NOT_FOUND = "The bicycle you've entered doesn't have any rides. Please Try again. Type 'cancel' to exit"
 ERROR_BIKE_ALREADY_EXIST = "The bicycle number you've entered already exists. Please Try Again. Type 'cancel' to exit"
 ERROR_BIKE_NO_SERVICE = "The bicycle is not due for servicing. Please Try Again. Type 'cancel' to exit"
-ERROR_BIKE_NEEDS_SERVICING = "Bicycle needs to be serviced. Cannot be rented at this time. Please Try Again. Type 'cancel' to exit"
+ERROR_BIKE_NEEDS_SERVICING = "Bicycle needs to be serviced. Cannot be rented at this time. "
